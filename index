@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uniforme Escolar · CEIP Reyes Católicos</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════
+   BRANDING AMPA CEIP REYES CATÓLICOS
+   Basado en cartel Puertas Abiertas
+   ═══════════════════════════════════ */
+:root {
+  --crema:      #FBF5E6;
+  --crema-d:    #F0E8D0;
+  --verde:      #3D6B35;
+  --verde-l:    #5A8A4F;
+  --verde-sage: #7BA05B;
+  --melocoton:  #E8C4A0;
+  --beige:      #D4B896;
+  --beige-d:    #B89A78;
+  --texto:      #2A2A2A;
+  --texto-l:    #5a5a5a;
+  --blanco:     #FFFFFF;
+
+  /* uniformes */
+  --verde-manzana: #6EC531;
+  --navy:          #1B3A6B;
+  --gris-uni:      #9EA3A8;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--crema);
+  color: var(--texto);
+  overflow-x: hidden;
+}
+
+/* ── BLOBS DECORATIVOS ── */
+.blob-fixed {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky; top:0; z-index: 100;
+  background: rgba(251,245,230,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1.5px solid var(--beige);
+  padding: 0.7rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-weight: 900; font-size: 0.8rem; color: var(--verde);
+}
+.nav-logo span { font-size: 1.1rem; }
+.nav-links {
+  display: flex; gap: 0.3rem;
+}
+.nav-link {
+  font-size: 0.65rem; font-weight: 800;
+  color: var(--texto-l);
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 50px;
+  transition: all 0.2s;
+}
+.nav-link:hover { background: var(--verde); color: white; }
+
+/* ── SECTIONS ── */
+section {
+  position: relative; z-index: 1;
+  padding: 2.5rem 1.3rem;
+}
+
+/* ── HERO / PORTADA ── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center;
+  padding: 3rem 1.3rem 2rem;
+  position: relative; overflow: hidden;
+}
+.hero-blob1 { position:absolute; width:280px; height:280px; background:#d4e8c2; opacity:0.45; border-radius:50%; top:-80px; right:-80px; }
+.hero-blob2 { position:absolute; width:200px; height:200px; background:var(--melocoton); opacity:0.35; border-radius:50%; bottom:60px; left:-60px; }
+.hero-blob3 { position:absolute; width:120px; height:120px; background:var(--beige); opacity:0.4; border-radius:50%; top:30%; right:10px; }
+
+.hero-corona { font-size: 3rem; margin-bottom: 0.5rem; }
+.hero-tag {
+  display: inline-block;
+  background: var(--verde);
+  color: white;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.9rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+}
+.hero h1 {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--verde);
+  line-height: 1.1;
+  margin-bottom: 0.8rem;
+}
+.hero h1 em { font-style: normal; color: var(--verde-l); }
+.hero p {
+  font-size: 1rem;
+  color: var(--texto-l);
+  max-width: 340px;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* niños ilustrados hero */
+.hero-kids {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.scroll-hint {
+  font-size: 0.68rem; color: var(--beige-d);
+  font-weight: 700; letter-spacing: 0.1em;
+  animation: bounce 2s infinite;
+}
+@keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+
+/* ── RAZONES (estilo infografía) ── */
+.razones-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+.razon-card {
+  border-radius: 20px;
+  padding: 1.2rem 1rem;
+  position: relative;
+}
+.razon-card:nth-child(1) { background: #c8ddb8; }
+.razon-card:nth-child(2) { background: var(--melocoton); }
+.razon-card:nth-child(3) { background: var(--beige); }
+.razon-card:nth-child(4) { background: #b8cfe8; }
+
+.razon-ico { font-size: 1.6rem; margin-bottom: 0.4rem; }
+.razon-titulo { font-size: 0.82rem; font-weight: 900; color: var(--texto); margin-bottom: 0.3rem; line-height: 1.2; }
+.razon-txt { font-size: 0.68rem; color: var(--texto-l); line-height: 1.45; }
+
+/* ── SECTION TITLES ── */
+.s-titulo {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--verde);
+  line-height: 1.2;
+  margin-bottom: 0.3rem;
+}
+.s-sub {
+  font-size: 0.8rem;
+  color: var(--texto-l);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+.s-bg-crema { background: var(--crema); }
+.s-bg-blanco { background: var(--blanco); }
+.s-bg-verde  { background: var(--verde); }
+
+/* ── VOTACIÓN ── */
+.voto-card {
+  background: white;
+  border-radius: 24px;
+  padding: 1.5rem 1.2rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  margin-bottom: 1rem;
+}
+.voto-pregunta {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--verde);
+  margin-bottom: 1.2rem;
+  line-height: 1.3;
+}
+.voto-opciones {
+  display: flex; flex-direction: column; gap: 0.7rem;
+}
+.voto-btn {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border-radius: 16px;
+  border: 2.5px solid var(--beige);
+  background: var(--crema);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--texto);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.voto-btn:hover { border-color: var(--verde); background: #eef5e8; }
+.voto-btn.sel  { border-color: var(--verde); background: var(--verde); color: white; }
+.voto-btn .ico { font-size: 1.3rem; flex-shrink: 0; }
+
+.voto-enviar {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 16px;
+  border: none;
+  background: var(--verde);
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+.voto-enviar:hover { background: var(--verde-l); transform: scale(1.02); }
+.voto-enviar:disabled { background: var(--beige); color: var(--beige-d); cursor: default; transform: none; }
+
+.voto-ok {
+  display: none;
+  background: #eef5e8;
+  border: 2px solid var(--verde-sage);
+  border-radius: 16px;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--verde);
+  margin-top: 0.8rem;
+}
+.voto-ok.show { display: block; animation: fadeup 0.4s ease; }
+
+/* barra resultados */
+.resultados { margin-top: 1.2rem; }
+.res-item { margin-bottom: 0.8rem; }
+.res-label { display:flex; justify-content:space-between; font-size:0.75rem; font-weight:800; color:var(--texto); margin-bottom:0.3rem; }
+.res-bar { height:10px; background:var(--crema-d); border-radius:50px; overflow:hidden; }
+.res-fill { height:100%; border-radius:50px; transition: width 1s ease; }
+
+@keyframes fadeup { from{opacity:0;transform:translateY(8px)} to{opacity:1} }
+
+/* ── PROPUESTAS UNIFORME ── */
+.propuesta {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  margin-bottom: 1.2rem;
+}
+.prop-header {
+  padding: 1.2rem 1.3rem 1rem;
+  display: flex; align-items: flex-start; justify-content: space-between;
+}
+.prop-nombre { font-size: 1.1rem; font-weight: 900; }
+.prop-tag {
+  font-size: 0.6rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  padding: 0.25rem 0.6rem; border-radius: 50px;
+}
+.prop-desc { font-size: 0.75rem; color: var(--texto-l); margin-top: 0.2rem; }
+
+.prop-figures {
+  padding: 0.5rem 1rem 1rem;
+  display: flex; justify-content: center; gap: 1.5rem;
+  background: var(--crema);
+}
+.prop-fig { display:flex; flex-direction:column; align-items:center; gap:0.3rem; }
+.prop-fig-label { font-size:0.58rem; font-weight:800; color:var(--texto-l); text-transform:uppercase; letter-spacing:0.06em; }
+
+.prop-colores {
+  padding: 0.8rem 1.3rem;
+  display: flex; gap: 0.5rem; align-items: center;
+}
+.col-chip {
+  display:flex; align-items:center; gap:0.3rem;
+  font-size:0.62rem; font-weight:700; color:var(--texto-l);
+}
+.col-dot { width:18px; height:18px; border-radius:50%; border:1.5px solid rgba(0,0,0,0.08); flex-shrink:0; }
+
+.prop-footer {
+  padding: 0.8rem 1.3rem;
+  border-top: 1.5px solid var(--crema-d);
+  display: flex; align-items:center; justify-content:space-between;
+}
+.prop-precio { font-size:0.75rem; color:var(--texto-l); }
+.prop-precio strong { font-size:1rem; color:var(--texto); }
+
+.prop-sel-btn {
+  padding: 0.5rem 1.1rem;
+  border-radius: 50px;
+  border: 2px solid currentColor;
+  background: transparent;
+  font-family: 'Nunito',sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/* ── FOOTER AMPA ── */
+.ampa-footer {
+  background: var(--verde);
+  padding: 2rem 1.3rem;
+  text-align: center;
+  position: relative; overflow:hidden;
+}
+.ampa-footer::before {
+  content:'';position:absolute;top:-60px;left:-60px;
+  width:180px;height:180px;
+  background:rgba(255,255,255,0.05);border-radius:50%;
+}
+.ampa-footer .logo-ampa {
+  font-size:2rem; margin-bottom:0.5rem;
+}
+.ampa-footer h3 {
+  font-size:0.85rem; font-weight:900; color:white;
+  letter-spacing:0.1em; text-transform:uppercase;
+}
+.ampa-footer p { font-size:0.7rem; color:rgba(255,255,255,0.6); margin-top:0.3rem; }
+.ampa-footer a { color:rgba(255,255,255,0.8); font-weight:700; }
+
+/* ── VINILO PREVIEW ── */
+.vinilo-mini {
+  display:inline-flex; flex-direction:column; align-items:center; gap:0.05rem;
+  line-height:1.2;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><span>👑</span> AMPA Reyes Católicos</div>
+  <div class="nav-links">
+    <a class="nav-link" href="#razones">Por qué</a>
+    <a class="nav-link" href="#vota">Vota</a>
+    <a class="nav-link" href="#propuestas">Diseños</a>
+  </div>
+</nav>
+
+<!-- ══════ HERO ══════ -->
+<section class="hero" id="inicio">
+  <div class="hero-blob1"></div>
+  <div class="hero-blob2"></div>
+  <div class="hero-blob3"></div>
+
+  <div class="hero-corona">👑</div>
+  <div class="hero-tag">AMPA · CEIP Reyes Católicos</div>
+  <h1>¡Todos<br><em>Somos Uno!</em></h1>
+  <p>Queremos conocer tu opinión sobre el uniforme escolar. Explora las propuestas y vota.</p>
+
+  <!-- niños en círculo ilustrados -->
+  <div class="hero-kids">
+    <svg width="260" height="160" viewBox="0 0 260 160" fill="none">
+      <!-- suelo -->
+      <ellipse cx="130" cy="148" rx="100" ry="12" fill="rgba(0,0,0,0.05)"/>
+      <!-- 4 niños en semicírculo con uniforme verde -->
+
+      <!-- niño 1 izq -->
+      <g transform="translate(10,20)">
+        <ellipse cx="30" cy="125" rx="18" ry="4" fill="rgba(0,0,0,0.07)"/>
+        <rect x="18" y="82" width="10" height="38" rx="4" fill="#9EA3A8"/>
+        <rect x="32" y="82" width="10" height="38" rx="4" fill="#9EA3A8"/>
+        <rect x="14" y="114" width="16" height="8" rx="4" fill="white" stroke="#eee" stroke-width="1"/>
+        <rect x="30" y="114" width="16" height="8" rx="4" fill="white" stroke="#eee" stroke-width="1"/>
+        <polygon points="16,50 4,60 6,84 54,84 56,60 44,50 38,46 30,54 22,46" fill="#6EC531"/>
+        <text x="30" y="70" text-anchor="middle" font-family="Nunito" font-size="4.5" fill="white" font-weight="900">CEIP RC</text>
+        <ellipse cx="30" cy="36" rx="14" ry="15" fill="#F5C89A"/>
+        <ellipse cx="30" cy="24" rx="14" ry="8" fill="#5C3317"/>
+        <rect x="16" y="24" width="28" height="10" rx="0" fill="#5C3317"/>
+        <circle cx="25" cy="34" r="2.5" fill="#3d2008"/>
+        <circle cx="35" cy="34" r="2.5" fill="#3d2008"/>
+        <path d="M26,42 Q30,46 34,42" fill="none" stroke="#c97a4a" stroke-width="1.5" stroke-linecap="round"/>
+        <ellipse cx="20" cy="40" rx="3" ry="2" fill="#f0a070" opacity="0.3"/>
+        <ellipse cx="40" cy="40" rx="3" ry="2" fill="#f0a070" opacity="0.3"/>
+        <!-- brazo extendido -->
+        <line x1="54" y1="65" x2="70" y2="75" stroke="#F5C89A" stroke-width="6" stroke-linecap="round"/>
+      </g>
+
+      <!-- niño 2 -->
+      <g transform="translate(68,10)">
+        <ellipse cx="30" cy="130" rx="18" ry="4" fill="rgba(0,0,0,0.07)"/>
+        <rect x="18" y="88" width="10" height="38" rx="4" fill="#9EA3A8"/>
+        <rect x="32" y="88" width="10" height="38" rx="4" fill="#9EA3A8"/>
+        <rect x="14" y="120" width="16" height="8" rx="4" fill="white" stroke="#eee" stroke-width="1"/>
+        <rect x="30" y="120" width="16" height="8" rx="4" fill="white" stroke="#eee" stroke-width="1"/>
+        <polygon points="16,56 4,66 6,90 54,90 56,66 44,56 38,52 30,60 22,52" fill="#6EC531"/>
+        <text x="30" y="76" text-anchor="middle" font-family="Nunito" font-size="4.5" fill="white" font-weight="900">CEIP RC</text>
+        <ellipse cx="30" cy="40" rx="15" ry="16" fill="#FDDBB4"/>
+        <ellipse cx="30" cy="27" rx="15" ry="9" fill="#8B4513"/>
+        <rect x="15" y="27" width="30" height="12" rx="0" fill="#8B4513"/>
+        <rect x="15" y="30" width="6" height="20" rx="3" fill="#8B4513"/>
+        <rect x="39" y="30" width="6" height="20" rx="3" fill="#8B4513"/>
+        <circle cx="25" cy="38" r="2.5" fill="#3d2008"/>
+        <circle cx="35" cy="38" r="2.5" fill="#3d2008"/>
+        <path d="M26,47 Q30,52 34,47" fill="none" stroke="#c97a4a" stroke-width="1.5" stroke-linecap="round"/>
+        <ellipse cx="20" cy="44" rx="3" ry="2" fill="#f0a070" opacity="0.3"/>
+        <ellipse cx="40" cy="44" rx="3" ry="2" fill="#f0a070" opacity="0.3"/>
+        <line x1="4" y1="70" x2="-12" y2="80" stroke="#FDDBB4" stroke-width="6" stroke-linecap="round"/>
+        <line x1="56" y1="70" x2="72" y2="80" stroke="#FDDBB4" stroke-width="6" stroke-linecap="round"/>
+      </g>
+
+      <!-- niño 3 -->
+      <g transform="translate(142,10)">
+        <ellipse cx="30" cy="130" rx="18" ry="4" fill="rgba(0,0,0,0.07)"/>
+        <rect x="18" y="88" width="10" height="38" rx="4" fill="#7a7f84"/>
+        <rect x="32" y="88" width="10" height="38" rx="4" fill="#7a7f84"/>
+        <rect x="14" y="120" width="16" height="8" rx="4" fill="white" stroke="#eee" stroke-width="1"/>
+        <rect x="30" y="120" width="16" height="8" rx="4" fill="white" stroke="#eee" stroke-width="1"/>
+        <polygon points="16,56 4,66 6,90 54,90 56,66 44,56 38,52 30,60 22,52" fill="#6EC531"/>
+        <text x="30" y="76" text-anchor="middle" font-family="Nunito" font-size="4.5" fill="white" font-weight="900">CEIP RC</text>
+        <ellipse cx="30" cy="40" rx="15" ry="16" fill="#F5C89A"/>
+        <ellipse cx="30" cy="27" rx="15" ry="9" fill="#2C1810"/>
+        <rect x="15" y="27" width="30" height="12" rx="0" fill="#2C1810"/>
+        <rect x="15" y="30" width="6" height="16" rx="3" fill="#2C1810"/>
+        <rect x="39" y="30" width="6" height="16" rx="3" fill="#2C1810"/>
+        <circle cx="25" cy="38" r="2.5" fill="#2C1810"/>
+        <circle cx="35" cy="38" r="2.5" fill="#2C1810"/>
+        <path d="M26,47 Q30,52 34,47" fill="none" stroke="#c97a4a" stroke-width="1.5" stroke-linecap="round"/>
+        <ellipse cx="20" cy="44" rx="3" ry="2" fill="#f0a070" opacity="0.3"/>
+        <ellipse cx="40" cy="44" rx="3" ry="2" fill="#f0a070" opacity="0.3"/>
+        <line x1="4" y1="70" x2="-12" y2="80" stroke="#F5C89A" stroke-width="6" stroke-linecap="round"/>
+        <line x1="56" y1="70" x2="72" y2="80" stroke="#F5C89A" stroke-width="6" stroke-linecap="round"/>
+      </g>
+
+      <!-- niño 4 der -->
+      <g transform="translate(196,20)">
+        <ellipse cx="30" cy="125" rx="18" ry="4" fill="rgba(0,0,0,0.07)"/>
+        <rect x="18" y="82" width="10" height="38" rx="4" fill="#9EA3A8"/>
+        <rect x="32" y="82" width="10" height="38" rx="4" fill="#9EA3A8"/>
+        <rect x="14" y="114" width="16" height="8" rx="4" fill="white" stroke="#eee" stroke-width="1"/>
+        <rect x="30" y="114" width="16" height="8" rx="4" fill="white" stroke="#eee" stroke-width="1"/>
+        <polygon points="16,50 4,60 6,84 54,84 56,60 44,50 38,46 30,54 22,46" fill="#6EC531"/>
+        <text x="30" y="70" text-anchor="middle" font-family="Nunito" font-size="4.5" fill="white" font-weight="900">CEIP RC</text>
+        <ellipse cx="30" cy="36" rx="14" ry="15" fill="#C8A882"/>
+        <ellipse cx="30" cy="24" rx="14" ry="8" fill="#1a0f0a"/>
+        <rect x="16" y="24" width="28" height="10" rx="0" fill="#1a0f0a"/>
+        <circle cx="25" cy="34" r="2.5" fill="#1a0f0a"/>
+        <circle cx="35" cy="34" r="2.5" fill="#1a0f0a"/>
+        <path d="M26,42 Q30,46 34,42" fill="none" stroke="#a06030" stroke-width="1.5" stroke-linecap="round"/>
+        <ellipse cx="20" cy="40" rx="3" ry="2" fill="#d08050" opacity="0.3"/>
+        <ellipse cx="40" cy="40" rx="3" ry="2" fill="#d08050" opacity="0.3"/>
+        <line x1="4" y1="65" x2="-12" y2="75" stroke="#C8A882" stroke-width="6" stroke-linecap="round"/>
+      </g>
+
+      <!-- manos unidas en el centro -->
+      <circle cx="130" cy="100" r="8" fill="rgba(110,197,49,0.15)"/>
+    </svg>
+  </div>
+
+  <div class="scroll-hint">↓ Desliza para ver más</div>
+</section>
+
+<!-- ══════ RAZONES ══════ -->
+<section id="razones" class="s-bg-blanco">
+  <div class="s-titulo">¿Por qué el<br>uniforme?</div>
+  <div class="s-sub">Cuatro razones que benefician a toda la comunidad educativa</div>
+
+  <div class="razones-grid">
+    <div class="razon-card">
+      <div class="razon-ico">🤝</div>
+      <div class="razon-titulo">Fomenta la igualdad y evita la discriminación</div>
+      <div class="razon-txt">Al vestir todos igual se eliminan las diferencias socioeconómicas y se previene el acoso relacionado con la vestimenta.</div>
+    </div>
+    <div class="razon-card">
+      <div class="razon-ico">⏰</div>
+      <div class="razon-titulo">Ahorro de tiempo y estrés diario</div>
+      <div class="razon-txt">Simplifica las mañanas de las familias al no tener que decidir qué ropa poner a los niños cada día.</div>
+    </div>
+    <div class="razon-card">
+      <div class="razon-ico">🏫</div>
+      <div class="razon-titulo">Crea un fuerte sentido de pertenencia</div>
+      <div class="razon-txt">Ayuda a los alumnos a sentirse parte de un grupo unido, solidario y orgulloso de su colegio.</div>
+    </div>
+    <div class="razon-card">
+      <div class="razon-ico">📚</div>
+      <div class="razon-titulo">Mayor concentración en el aprendizaje</div>
+      <div class="razon-txt">Elimina distracciones y rivalidades por la moda, permitiendo que los estudiantes se enfoquen en sus actividades.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ VOTACIÓN ══════ -->
+<section id="vota" style="background:var(--crema)">
+  <div class="s-titulo">¿Quieres<br>uniforme?</div>
+  <div class="s-sub">Tu opinión es fundamental para tomar esta decisión entre toda la comunidad</div>
+
+  <div class="voto-card">
+    <div class="voto-pregunta">¿Estarías a favor de implantar el uniforme en el CEIP Reyes Católicos?</div>
+    <div class="voto-opciones">
+      <button class="voto-btn" onclick="voto1(this,'si')">
+        <span class="ico">✅</span>
+        <span><strong>Sí, estoy a favor</strong><br><small style="font-weight:600;opacity:0.7">Quiero que mis hijos lleven uniforme</small></span>
+      </button>
+      <button class="voto-btn" onclick="voto1(this,'no')">
+        <span class="ico">❌</span>
+        <span><strong>No, en contra</strong><br><small style="font-weight:600;opacity:0.7">Prefiero ropa de calle</small></span>
+      </button>
+      <button class="voto-btn" onclick="voto1(this,'quiza')">
+        <span class="ico">🤔</span>
+        <span><strong>Me lo pienso</strong><br><small style="font-weight:600;opacity:0.7">Necesito más información</small></span>
+      </button>
+    </div>
+    <button class="voto-enviar" id="btn-enviar1" onclick="enviar1()" disabled>Enviar mi voto</button>
+    <div class="voto-ok" id="ok1">✅ ¡Gracias! Tu voto ha sido registrado. Publicaremos los resultados por Telegram.</div>
+
+    <div class="resultados" id="resultados1">
+      <div style="font-size:0.65rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:var(--texto-l);margin-bottom:0.8rem">Votos actuales (demo)</div>
+      <div class="res-item">
+        <div class="res-label"><span>✅ A favor</span><span id="pct-si">62%</span></div>
+        <div class="res-bar"><div class="res-fill" id="fill-si" style="width:62%;background:var(--verde-sage)"></div></div>
+      </div>
+      <div class="res-item">
+        <div class="res-label"><span>❌ En contra</span><span id="pct-no">22%</span></div>
+        <div class="res-bar"><div class="res-fill" id="fill-no" style="width:22%;background:var(--melocoton)"></div></div>
+      </div>
+      <div class="res-item">
+        <div class="res-label"><span>🤔 Indeciso</span><span id="pct-quiz">16%</span></div>
+        <div class="res-bar"><div class="res-fill" id="fill-quiz" style="width:16%;background:var(--beige)"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ PROPUESTAS ══════ -->
+<section id="propuestas" class="s-bg-blanco">
+  <div class="s-titulo">Propuestas<br>de diseño</div>
+  <div class="s-sub">Verde manzana · Azul navy · Combinado. Todas con vinilo blanco: <strong>CEIP REYES CATÓLICOS · SINCE 1973</strong></div>
+
+  <!-- PROPUESTA 1: VERDE MANZANA -->
+  <div class="propuesta">
+    <div class="prop-header">
+      <div>
+        <div class="prop-nombre" style="color:var(--verde-manzana)">A · Verde Manzana</div>
+        <div class="prop-desc">Alegre, moderna, diferente. Vinilo blanco.</div>
+      </div>
+      <div class="prop-tag" style="background:#eef7e4;color:#3a7a1a">⭐ Popular</div>
+    </div>
+
+    <div class="prop-figures" style="background:#f0f9e8">
+      <!-- figura niño verde -->
+      <div class="prop-fig">
+        <svg width="100" height="170" viewBox="0 0 100 170" fill="none">
+          <ellipse cx="50" cy="166" rx="28" ry="4" fill="rgba(0,0,0,0.08)"/>
+          <rect x="26" y="112" width="16" height="48" rx="6" fill="#9EA3A8"/>
+          <rect x="58" y="112" width="16" height="48" rx="6" fill="#9EA3A8"/>
+          <rect x="20" y="152" width="24" height="10" rx="5" fill="white" stroke="#eee" stroke-width="1.5"/>
+          <rect x="56" y="152" width="24" height="10" rx="5" fill="white" stroke="#eee" stroke-width="1.5"/>
+          <!-- sudadera -->
+          <path d="M8,58 Q2,62 2,74 L6,114 Q6,120 14,120 L30,114 L32,64 Z" fill="#5ab526"/>
+          <path d="M92,58 Q98,62 98,74 L94,114 Q94,120 86,120 L70,114 L68,64 Z" fill="#5ab526"/>
+          <rect x="2" y="108" width="28" height="10" rx="5" fill="#4a9e1e"/>
+          <rect x="70" y="108" width="28" height="10" rx="5" fill="#4a9e1e"/>
+          <rect x="28" y="52" width="44" height="68" rx="10" fill="#6EC531"/>
+          <path d="M36,52 Q50,30 64,52 L60,57 Q50,38 40,57 Z" fill="#5ab526"/>
+          <ellipse cx="50" cy="46" rx="14" ry="11" fill="#6EC531"/>
+          <rect x="28" y="116" width="44" height="7" rx="3.5" fill="#4a9e1e"/>
+          <rect x="34" y="94" width="32" height="22" rx="6" fill="#5ab526"/>
+          <line x1="50" y1="96" x2="50" y2="114" stroke="#4a9e1e" stroke-width="1"/>
+          <!-- vinilo -->
+          <text x="50" y="70" text-anchor="middle" font-family="Nunito" font-size="3.8" fill="white" font-weight="900">CEIP</text>
+          <line x1="36" y1="72.5" x2="64" y2="72.5" stroke="rgba(255,255,255,0.4)" stroke-width="0.7"/>
+          <text x="50" y="78" text-anchor="middle" font-family="Nunito" font-size="5" fill="white" font-weight="900">REYES</text>
+          <text x="50" y="84" text-anchor="middle" font-family="Nunito" font-size="4" fill="white" font-weight="900">CATÓLICOS</text>
+          <line x1="36" y1="86.5" x2="64" y2="86.5" stroke="rgba(255,255,255,0.4)" stroke-width="0.7"/>
+          <text x="50" y="91" text-anchor="middle" font-family="Nunito" font-size="3.2" fill="rgba(255,255,255,0.7)" font-style="italic">· Since 1973 ·</text>
+          <!-- cabeza -->
+          <ellipse cx="50" cy="34" rx="20" ry="22" fill="#F5C89A"/>
+          <ellipse cx="50" cy="16" rx="20" ry="11" fill="#5C3317"/>
+          <rect x="30" y="16" width="40" height="16" rx="0" fill="#5C3317"/>
+          <rect x="30" y="22" width="6" height="12" rx="3" fill="#5C3317"/>
+          <rect x="64" y="22" width="6" height="12" rx="3" fill="#5C3317"/>
+          <ellipse cx="30" cy="34" rx="4" ry="5" fill="#F5C89A"/>
+          <ellipse cx="70" cy="34" rx="4" ry="5" fill="#F5C89A"/>
+          <circle cx="43" cy="32" r="3" fill="white"/><circle cx="44" cy="33" r="1.8" fill="#3d2008"/>
+          <circle cx="57" cy="32" r="3" fill="white"/><circle cx="58" cy="33" r="1.8" fill="#3d2008"/>
+          <path d="M44,42 Q50,47 56,42" fill="none" stroke="#c97a4a" stroke-width="1.5" stroke-linecap="round"/>
+          <ellipse cx="37" cy="39" rx="4" ry="3" fill="#f0a070" opacity="0.3"/>
+          <ellipse cx="63" cy="39" rx="4" ry="3" fill="#f0a070" opacity="0.3"/>
+        </svg>
+        <div class="prop-fig-label">Niño</div>
+      </div>
+
+      <!-- figura niña verde mallas -->
+      <div class="prop-fig">
+        <svg width="100" height="170" viewBox="0 0 100 170" fill="none">
+          <ellipse cx="50" cy="166" rx="28" ry="4" fill="rgba(0,0,0,0.08)"/>
+          <rect x="28" y="112" width="18" height="50" rx="7" fill="#7a7f84"/>
+          <rect x="54" y="112" width="18" height="50" rx="7" fill="#7a7f84"/>
+          <rect x="24" y="112" width="52" height="9" rx="4.5" fill="#6a6f74"/>
+          <rect x="20" y="154" width="28" height="10" rx="5" fill="white" stroke="#eee" stroke-width="1.5"/>
+          <rect x="52" y="154" width="28" height="10" rx="5" fill="white" stroke="#eee" stroke-width="1.5"/>
+          <path d="M8,58 Q2,62 2,74 L6,114 Q6,120 14,120 L30,114 L32,64 Z" fill="#5ab526"/>
+          <path d="M92,58 Q98,62 98,74 L94,114 Q94,120 86,120 L70,114 L68,64 Z" fill="#5ab526"/>
+          <rect x="2" y="108" width="28" height="10" rx="5" fill="#4a9e1e"/>
+          <rect x="70" y="108" width="28" height="10" rx="5" fill="#4a9e1e"/>
+          <rect x="28" y="52" width="44" height="68" rx="10" fill="#6EC531"/>
+          <path d="M36,52 Q50,30 64,52 L60,57 Q50,38 40,57 Z" fill="#5ab526"/>
+          <ellipse cx="50" cy="46" rx="14" ry="11" fill="#6EC531"/>
+          <rect x="28" y="116" width="44" height="7" rx="3.5" fill="#4a9e1e"/>
+          <rect x="34" y="94" width="32" height="22" rx="6" fill="#5ab526"/>
+          <line x1="50" y1="96" x2="50" y2="114" stroke="#4a9e1e" stroke-width="1"/>
+          <text x="50" y="70" text-anchor="middle" font-family="Nunito" font-size="3.8" fill="white" font-weight="900">CEIP</text>
+          <line x1="36" y1="72.5" x2="64" y2="72.5" stroke="rgba(255,255,255,0.4)" stroke-width="0.7"/>
+          <text x="50" y="78" text-anchor="middle" font-family="Nunito" font-size="5" fill="white" font-weight="900">REYES</text>
+          <text x="50" y="84" text-anchor="middle" font-family="Nunito" font-size="4" fill="white" font-weight="900">CATÓLICOS</text>
+          <line x1="36" y1="86.5" x2="64" y2="86.5" stroke="rgba(255,255,255,0.4)" stroke-width="0.7"/>
+          <text x="50" y="91" text-anchor="middle" font-family="Nunito" font-size="3.2" fill="rgba(255,255,255,0.7)" font-style="italic">· Since 1973 ·</text>
+          <!-- cabeza niña -->
+          <ellipse cx="50" cy="34" rx="20" ry="22" fill="#FDDBB4"/>
+          <ellipse cx="50" cy="15" rx="20" ry="11" fill="#8B4513"/>
+          <rect x="30" y="15" width="40" height="16" rx="0" fill="#8B4513"/>
+          <rect x="30" y="18" width="6" height="30" rx="3" fill="#8B4513"/>
+          <rect x="64" y="18" width="6" height="30" rx="3" fill="#8B4513"/>
+          <ellipse cx="30" cy="34" rx="4" ry="5" fill="#FDDBB4"/>
+          <ellipse cx="70" cy="34" rx="4" ry="5" fill="#FDDBB4"/>
+          <!-- pestañas -->
+          <line x1="41" y1="28" x2="40" y2="26" stroke="#8B4513" stroke-width="1"/>
+          <line x1="43" y1="27" x2="43" y2="25" stroke="#8B4513" stroke-width="1"/>
+          <line x1="45" y1="28" x2="46" y2="26" stroke="#8B4513" stroke-width="1"/>
+          <line x1="55" y1="28" x2="54" y2="26" stroke="#8B4513" stroke-width="1"/>
+          <line x1="57" y1="27" x2="57" y2="25" stroke="#8B4513" stroke-width="1"/>
+          <line x1="59" y1="28" x2="60" y2="26" stroke="#8B4513" stroke-width="1"/>
+          <circle cx="43" cy="32" r="3" fill="white"/><circle cx="44" cy="33" r="1.8" fill="#3d2008"/>
+          <circle cx="57" cy="32" r="3" fill="white"/><circle cx="58" cy="33" r="1.8" fill="#3d2008"/>
+          <path d="M44,42 Q50,47 56,42" fill="none" stroke="#c97a4a" stroke-width="1.5" stroke-linecap="round"/>
+          <ellipse cx="37" cy="39" rx="4" ry="3" fill="#f0a070" opacity="0.3"/>
+          <ellipse cx="63" cy="39" rx="4" ry="3" fill="#f0a070" opacity="0.3"/>
+        </svg>
+        <div class="prop-fig-label">Niña</div>
+      </div>
+    </div>
+
+    <div class="prop-colores">
+      <div class="col-chip"><div class="col-dot" style="background:#6EC531"></div>Verde manzana</div>
+      <div class="col-chip"><div class="col-dot" style="background:#9EA3A8"></div>Gris</div>
+      <div class="col-chip"><div class="col-dot" style="background:white;border:1.5px solid #ddd"></div>Blanco</div>
+    </div>
+    <div class="prop-footer">
+      <div class="prop-precio">Est. <strong>~55–70 €</strong></div>
+      <button class="prop-sel-btn" style="color:var(--verde-manzana)" onclick="elegirProp(this,'A · Verde Manzana')">Me gusta esta ✓</button>
+    </div>
+  </div>
+
+  <!-- PROPUESTA 2: NAVY -->
+  <div class="propuesta">
+    <div class="prop-header">
+      <div>
+        <div class="prop-nombre" style="color:var(--navy)">B · Azul Navy</div>
+        <div class="prop-desc">Clásico moderno. Vinilo blanco.</div>
+      </div>
+      <div class="prop-tag" style="background:#e8edf8;color:#1B3A6B">🌊 Elegante</div>
+    </div>
+
+    <div class="prop-figures" style="background:#edf1f8">
+      <div class="prop-fig">
+        <svg width="100" height="170" viewBox="0 0 100 170" fill="none">
+          <ellipse cx="50" cy="166" rx="28" ry="4" fill="rgba(0,0,0,0.08)"/>
+          <rect x="26" y="112" width="16" height="48" rx="6" fill="#9EA3A8"/>
+          <rect x="58" y="112" width="16" height="48" rx="6" fill="#9EA3A8"/>
+          <rect x="20" y="152" width="24" height="10" rx="5" fill="white" stroke="#eee" stroke-width="1.5"/>
+          <rect x="56" y="152" width="24" height="10" rx="5" fill="white" stroke="#eee" stroke-width="1.5"/>
+          <path d="M8,58 Q2,62 2,74 L6,114 Q6,120 14,120 L30,114 L32,64 Z" fill="#142d54"/>
+          <path d="M92,58 Q98,62 98,74 L94,114 Q94,120 86,120 L70,114 L68,64 Z" fill="#142d54"/>
+          <rect x="2" y="108" width="28" height="10" rx="5" fill="#0e2240"/>
+          <rect x="70" y="108" width="28" height="10" rx="5" fill="#0e2240"/>
+          <rect x="28" y="52" width="44" height="68" rx="10" fill="#1B3A6B"/>
+          <path d="M36,52 Q50,30 64,52 L60,57 Q50,38 40,57 Z" fill="#142d54"/>
+          <ellipse cx="50" cy="46" rx="14" ry="11" fill="#1B3A6B"/>
+          <rect x="28" y="116" width="44" height="7" rx="3.5" fill="#0e2240"/>
+          <rect x="34" y="94" width="32" height="22" rx="6" fill="#142d54"/>
+          <line x1="50" y1="96" x2="50" y2="114" stroke="#0e2240" stroke-width="1"/>
+          <text x="50" y="70" text-anchor="middle" font-family="Nunito" font-size="3.8" fill="white" font-weight="900">CEIP</text>
+          <line x1="36" y1="72.5" x2="64" y2="72.5" stroke="rgba(255,255,255,0.4)" stroke-width="0.7"/>
+          <text x="50" y="78" text-anchor="middle" font-family="Nunito" font-size="5" fill="white" font-weight="900">REYES</text>
+          <text x="50" y="84" text-anchor="middle" font-family="Nunito" font-size="4" fill="white" font-weight="900">CATÓLICOS</text>
+          <line x1="36" y1="86.5" x2="64" y2="86.5" stroke="rgba(255,255,255,0.4)" stroke-width="0.7"/>
+          <text x="50" y="91" text-anchor="middle" font-family="Nunito" font-size="3.2" fill="rgba(255,255,255,0.7)" font-style="italic">· Since 1973 ·</text>
+          <ellipse cx="50" cy="34" rx="20" ry="22" fill="#F5C89A"/>
+          <ellipse cx="50" cy="16" rx="20" ry="11" fill="#5C3317"/>
+          <rect x="30" y="16" width="40" height="16" rx="0" fill="#5C3317"/>
+          <rect x="30" y="22" width="6" height="12" rx="3" fill="#5C3317"/>
+          <rect x="64" y="22" width="6" height="12" rx="3" fill="#5C3317"/>
+          <ellipse cx="30" cy="34" rx="4" ry="5" fill="#F5C89A"/>
+          <ellipse cx="70" cy="34" rx="4" ry="5" fill="#F5C89A"/>
+          <circle cx="43" cy="32" r="3" fill="white"/><circle cx="44" cy="33" r="1.8" fill="#3d2008"/>
+          <circle cx="57" cy="32" r="3" fill="white"/><circle cx="58" cy="33" r="1.8" fill="#3d2008"/>
+          <path d="M44,42 Q50,47 56,42" fill="none" stroke="#c97a4a" stroke-width="1.5" stroke-linecap="round"/>
+          <ellipse cx="37" cy="39" rx="4" ry="3" fill="#f0a070" opacity="0.3"/>
+          <ellipse cx="63" cy="39" rx="4" ry="3" fill="#f0a070" opacity="0.3"/>
+        </svg>
+        <div class="prop-fig-label">Niño</div>
+      </div>
+      <div class="prop-fig">
+        <svg width="100" height="170" viewBox="0 0 100 170" fill="none">
+          <ellipse cx="50" cy="166" rx="28" ry="4" fill="rgba(0,0,0,0.08)"/>
+          <rect x="28" y="112" width="18" height="50" rx="7" fill="#7a7f84"/>
+          <rect x="54" y="112" width="18" height="50" rx="7" fill="#7a7f84"/>
+          <rect x="24" y="112" width="52" height="9" rx="4.5" fill="#6a6f74"/>
+          <rect x="20" y="154" width="28" height="10" rx="5" fill="white" stroke="#eee" stroke-width="1.5"/>
+          <rect x="52" y="154" width="28" height="10" rx="5" fill="white" stroke="#eee" stroke-width="1.5"/>
+          <path d="M8,58 Q2,62 2,74 L6,114 Q6,120 14,120 L30,114 L32,64 Z" fill="#142d54"/>
+          <path d="M92,58 Q98,62 98,74 L94,114 Q94,120 86,120 L70,114 L68,64 Z" fill="#142d54"/>
+          <rect x="2" y="108" width="28" height="10" rx="5" fill="#0e2240"/>
+          <rect x="70" y="108" width="28" height="10" rx="5" fill="#0e2240"/>
+          <rect x="28" y="52" width="44" height="68" rx="10" fill="#1B3A6B"/>
+          <path d="M36,52 Q50,30 64,52 L60,57 Q50,38 40,57 Z" fill="#142d54"/>
+          <ellipse cx="50" cy="46" rx="14" ry="11" fill="#1B3A6B"/>
+          <rect x="28" y="116" width="44" height="7" rx="3.5" fill="#0e2240"/>
+          <rect x="34" y="94" width="32" height="22" rx="6" fill="#142d54"/>
+          <line x1="50" y1="96" x2="50" y2="114" stroke="#0e2240" stroke-width="1"/>
+          <text x="50" y="70" text-anchor="middle" font-family="Nunito" font-size="3.8" fill="white" font-weight="900">CEIP</text>
+          <line x1="36" y1="72.5" x2="64" y2="72.5" stroke="rgba(255,255,255,0.4)" stroke-width="0.7"/>
+          <text x="50" y="78" text-anchor="middle" font-family="Nunito" font-size="5" fill="white" font-weight="900">REYES</text>
+          <text x="50" y="84" text-anchor="middle" font-family="Nunito" font-size="4" fill="white" font-weight="900">CATÓLICOS</text>
+          <line x1="36" y1="86.5" x2="64" y2="86.5" stroke="rgba(255,255,255,0.4)" stroke-width="0.7"/>
+          <text x="50" y="91" text-anchor="middle" font-family="Nunito" font-size="3.2" fill="rgba(255,255,255,0.7)" font-style="italic">· Since 1973 ·</text>
+          <ellipse cx="50" cy="34" rx="20" ry="22" fill="#FDDBB4"/>
+          <ellipse cx="50" cy="15" rx="20" ry="11" fill="#C06020"/>
+          <rect x="30" y="15" width="40" height="16" rx="0" fill="#C06020"/>
+          <rect x="30" y="18" width="6" height="30" rx="3" fill="#C06020"/>
+          <rect x="64" y="18" width="6" height="30" rx="3" fill="#C06020"/>
+          <ellipse cx="30" cy="34" rx="4" ry="5" fill="#FDDBB4"/>
+          <ellipse cx="70" cy="34" rx="4" ry="5" fill="#FDDBB4"/>
+          <line x1="41" y1="28" x2="40" y2="26" stroke="#C06020" stroke-width="1"/>
+          <line x1="43" y1="27" x2="43" y2="25" stroke="#C06020" stroke-width="1"/>
+          <line x1="55" y1="28" x2="54" y2="26" stroke="#C06020" stroke-width="1"/>
+          <line x1="57" y1="27" x2="57" y2="25" stroke="#C06020" stroke-width="1"/>
+          <circle cx="43" cy="32" r="3" fill="white"/><circle cx="44" cy="33" r="1.8" fill="#3d2008"/>
+          <circle cx="57" cy="32" r="3" fill="white"/><circle cx="58" cy="33" r="1.8" fill="#3d2008"/>
+          <path d="M44,42 Q50,47 56,42" fill="none" stroke="#c97a4a" stroke-width="1.5" stroke-linecap="round"/>
+          <ellipse cx="37" cy="39" rx="4" ry="3" fill="#f0a070" opacity="0.3"/>
+          <ellipse cx="63" cy="39" rx="4" ry="3" fill="#f0a070" opacity="0.3"/>
+        </svg>
+        <div class="prop-fig-label">Niña</div>
+      </div>
+    </div>
+
+    <div class="prop-colores">
+      <div class="col-chip"><div class="col-dot" style="background:#1B3A6B"></div>Navy</div>
+      <div class="col-chip"><div class="col-dot" style="background:#9EA3A8"></div>Gris</div>
+      <div class="col-chip"><div class="col-dot" style="background:white;border:1.5px solid #ddd"></div>Blanco</div>
+    </div>
+    <div class="prop-footer">
+      <div class="prop-precio">Est. <strong>~55–70 €</strong></div>
+      <button class="prop-sel-btn" style="color:var(--navy)" onclick="elegirProp(this,'B · Azul Navy')">Me gusta esta ✓</button>
+    </div>
+  </div>
+
+  <!-- PROPUESTA 3: PANTALÓN NAVY + SUDADERA GRIS -->
+  <div class="propuesta">
+    <div class="prop-header">
+      <div>
+        <div class="prop-nombre" style="color:#555">C · Gris & Navy</div>
+        <div class="prop-desc">Sudadera gris + pantalón navy. Neutro y elegante.</div>
+      </div>
+      <div class="prop-tag" style="background:#f0f0f0;color:#555">🌫️ Neutro</div>
+    </div>
+
+    <div class="prop-figures" style="background:#f4f4f4">
+      <div class="prop-fig">
+        <svg width="100" height="170" viewBox="0 0 100 170" fill="none">
+          <ellipse cx="50" cy="166" rx="28" ry="4" fill="rgba(0,0,0,0.08)"/>
+          <!-- pantalón NAVY -->
+          <rect x="26" y="112" width="16" height="48" rx="6" fill="#1B3A6B"/>
+          <rect x="58" y="112" width="16" height="48" rx="6" fill="#1B3A6B"/>
+          <rect x="20" y="152" width="24" height="10" rx="5" fill="white" stroke="#eee" stroke-width="1.5"/>
+          <rect x="56" y="152" width="24" height="10" rx="5" fill="white" stroke="#eee" stroke-width="1.5"/>
+          <!-- sudadera GRIS -->
+          <path d="M8,58 Q2,62 2,74 L6,114 Q6,120 14,120 L30,114 L32,64 Z" fill="#7a7f84"/>
+          <path d="M92,58 Q98,62 98,74 L94,114 Q94,120 86,120 L70,114 L68,64 Z" fill="#7a7f84"/>
+          <rect x="2" y="108" width="28" height="10" rx="5" fill="#6a6f74"/>
+          <rect x="70" y="108" width="28" height="10" rx="5" fill="#6a6f74"/>
+          <rect x="28" y="52" width="44" height="68" rx="10" fill="#9EA3A8"/>
+          <path d="M36,52 Q50,30 64,52 L60,57 Q50,38 40,57 Z" fill="#7a7f84"/>
+          <ellipse cx="50" cy="46" rx="14" ry="11" fill="#9EA3A8"/>
+          <rect x="28" y="116" width="44" height="7" rx="3.5" fill="#6a6f74"/>
+          <rect x="34" y="94" width="32" height="22" rx="6" fill="#7a7f84"/>
+          <line x1="50" y1="96" x2="50" y2="114" stroke="#6a6f74" stroke-width="1"/>
+          <!-- vinilo navy sobre gris -->
+          <text x="50" y="70" text-anchor="middle" font-family="Nunito" font-size="3.8" fill="#1B3A6B" font-weight="900">CEIP</text>
+          <line x1="36" y1="72.5" x2="64" y2="72.5" stroke="rgba(27,58,107,0.35)" stroke-width="0.7"/>
+          <text x="50" y="78" text-anchor="middle" font-family="Nunito" font-size="5" fill="#1B3A6B" font-weight="900">REYES</text>
+          <text x="50" y="84" text-anchor="middle" font-family="Nunito" font-size="4" fill="#1B3A6B" font-weight="900">CATÓLICOS</text>
+          <line x1="36" y1="86.5" x2="64" y2="86.5" stroke="rgba(27,58,107,0.35)" stroke-width="0.7"/>
+          <text x="50" y="91" text-anchor="middle" font-family="Nunito" font-size="3.2" fill="rgba(27,58,107,0.6)" font-style="italic">· Since 1973 ·</text>
+          <ellipse cx="50" cy="34" rx="20" ry="22" fill="#F5C89A"/>
+          <ellipse cx="50" cy="16" rx="20" ry="11" fill="#5C3317"/>
+          <rect x="30" y="16" width="40" height="16" rx="0" fill="#5C3317"/>
+          <rect x="30" y="22" width="6" height="12" rx="3" fill="#5C3317"/>
+          <rect x="64" y="22" width="6" height="12" rx="3" fill="#5C3317"/>
+          <ellipse cx="30" cy="34" rx="4" ry="5" fill="#F5C89A"/>
+          <ellipse cx="70" cy="34" rx="4" ry="5" fill="#F5C89A"/>
+          <circle cx="43" cy="32" r="3" fill="white"/><circle cx="44" cy="33" r="1.8" fill="#3d2008"/>
+          <circle cx="57" cy="32" r="3" fill="white"/><circle cx="58" cy="33" r="1.8" fill="#3d2008"/>
+          <path d="M44,42 Q50,47 56,42" fill="none" stroke="#c97a4a" stroke-width="1.5" stroke-linecap="round"/>
+          <ellipse cx="37" cy="39" rx="4" ry="3" fill="#f0a070" opacity="0.3"/>
+          <ellipse cx="63" cy="39" rx="4" ry="3" fill="#f0a070" opacity="0.3"/>
+        </svg>
+        <div class="prop-fig-label">Niño</div>
+      </div>
+      <div class="prop-fig">
+        <svg width="100" height="170" viewBox="0 0 100 170" fill="none">
+          <ellipse cx="50" cy="166" rx="28" ry="4" fill="rgba(0,0,0,0.08)"/>
+          <!-- mallas NAVY -->
+          <rect x="28" y="112" width="18" height="50" rx="7" fill="#1B3A6B"/>
+          <rect x="54" y="112" width="18" height="50" rx="7" fill="#1B3A6B"/>
+          <rect x="24" y="112" width="52" height="9" rx="4.5" fill="#142d54"/>
+          <rect x="20" y="154" width="28" height="10" rx="5" fill="white" stroke="#eee" stroke-width="1.5"/>
+          <rect x="52" y="154" width="28" height="10" rx="5" fill="white" stroke="#eee" stroke-width="1.5"/>
+          <!-- sudadera GRIS -->
+          <path d="M8,58 Q2,62 2,74 L6,114 Q6,120 14,120 L30,114 L32,64 Z" fill="#7a7f84"/>
+          <path d="M92,58 Q98,62 98,74 L94,114 Q94,120 86,120 L70,114 L68,64 Z" fill="#7a7f84"/>
+          <rect x="2" y="108" width="28" height="10" rx="5" fill="#6a6f74"/>
+          <rect x="70" y="108" width="28" height="10" rx="5" fill="#6a6f74"/>
+          <rect x="28" y="52" width="44" height="68" rx="10" fill="#9EA3A8"/>
+          <path d="M36,52 Q50,30 64,52 L60,57 Q50,38 40,57 Z" fill="#7a7f84"/>
+          <ellipse cx="50" cy="46" rx="14" ry="11" fill="#9EA3A8"/>
+          <rect x="28" y="116" width="44" height="7" rx="3.5" fill="#6a6f74"/>
+          <rect x="34" y="94" width="32" height="22" rx="6" fill="#7a7f84"/>
+          <line x1="50" y1="96" x2="50" y2="114" stroke="#6a6f74" stroke-width="1"/>
+          <text x="50" y="70" text-anchor="middle" font-family="Nunito" font-size="3.8" fill="#1B3A6B" font-weight="900">CEIP</text>
+          <line x1="36" y1="72.5" x2="64" y2="72.5" stroke="rgba(27,58,107,0.35)" stroke-width="0.7"/>
+          <text x="50" y="78" text-anchor="middle" font-family="Nunito" font-size="5" fill="#1B3A6B" font-weight="900">REYES</text>
+          <text x="50" y="84" text-anchor="middle" font-family="Nunito" font-size="4" fill="#1B3A6B" font-weight="900">CATÓLICOS</text>
+          <line x1="36" y1="86.5" x2="64" y2="86.5" stroke="rgba(27,58,107,0.35)" stroke-width="0.7"/>
+          <text x="50" y="91" text-anchor="middle" font-family="Nunito" font-size="3.2" fill="rgba(27,58,107,0.6)" font-style="italic">· Since 1973 ·</text>
+          <ellipse cx="50" cy="34" rx="20" ry="22" fill="#FDDBB4"/>
+          <ellipse cx="50" cy="15" rx="20" ry="11" fill="#8B4513"/>
+          <rect x="30" y="15" width="40" height="16" rx="0" fill="#8B4513"/>
+          <rect x="30" y="18" width="6" height="30" rx="3" fill="#8B4513"/>
+          <rect x="64" y="18" width="6" height="30" rx="3" fill="#8B4513"/>
+          <ellipse cx="30" cy="34" rx="4" ry="5" fill="#FDDBB4"/>
+          <ellipse cx="70" cy="34" rx="4" ry="5" fill="#FDDBB4"/>
+          <line x1="41" y1="28" x2="40" y2="26" stroke="#8B4513" stroke-width="1"/>
+          <line x1="43" y1="27" x2="43" y2="25" stroke="#8B4513" stroke-width="1"/>
+          <line x1="55" y1="28" x2="54" y2="26" stroke="#8B4513" stroke-width="1"/>
+          <line x1="57" y1="27" x2="57" y2="25" stroke="#8B4513" stroke-width="1"/>
+          <circle cx="43" cy="32" r="3" fill="white"/><circle cx="44" cy="33" r="1.8" fill="#3d2008"/>
+          <circle cx="57" cy="32" r="3" fill="white"/><circle cx="58" cy="33" r="1.8" fill="#3d2008"/>
+          <path d="M44,42 Q50,47 56,42" fill="none" stroke="#c97a4a" stroke-width="1.5" stroke-linecap="round"/>
+          <ellipse cx="37" cy="39" rx="4" ry="3" fill="#f0a070" opacity="0.3"/>
+          <ellipse cx="63" cy="39" rx="4" ry="3" fill="#f0a070" opacity="0.3"/>
+        </svg>
+        <div class="prop-fig-label">Niña</div>
+      </div>
+    </div>
+
+    <div class="prop-colores">
+      <div class="col-chip"><div class="col-dot" style="background:#9EA3A8"></div>Gris</div>
+      <div class="col-chip"><div class="col-dot" style="background:#1B3A6B"></div>Navy</div>
+      <div class="col-chip"><div class="col-dot" style="background:white;border:1.5px solid #ddd"></div>Blanco</div>
+    </div>
+    <div class="prop-footer">
+      <div class="prop-precio">Est. <strong>~55–70 €</strong></div>
+      <button class="prop-sel-btn" style="color:#555" onclick="elegirProp(this,'C · Gris & Navy')">Me gusta esta ✓</button>
+    </div>
+  </div>
+
+  <!-- VOTACIÓN PROPUESTA -->
+  <div class="voto-card">
+    <div class="voto-pregunta">¿Cuál propuesta te gusta más?</div>
+    <div class="voto-opciones">
+      <button class="voto-btn" onclick="voto2(this,'A')" style="border-left:4px solid #6EC531">
+        <span class="ico">🟢</span><span><strong>A · Verde Manzana</strong></span>
+      </button>
+      <button class="voto-btn" onclick="voto2(this,'B')" style="border-left:4px solid #1B3A6B">
+        <span class="ico">🔵</span><span><strong>B · Azul Navy</strong></span>
+      </button>
+      <button class="voto-btn" onclick="voto2(this,'C')" style="border-left:4px solid #9EA3A8">
+        <span class="ico">⚫</span><span><strong>C · Gris & Navy</strong></span>
+      </button>
+    </div>
+    <button class="voto-enviar" id="btn-enviar2" onclick="enviar2()" disabled>Votar diseño favorito</button>
+    <div class="voto-ok" id="ok2">✅ ¡Voto registrado! Resultados por Telegram próximamente.</div>
+  </div>
+</section>
+
+<!-- FOOTER AMPA -->
+<div class="ampa-footer">
+  <div class="logo-ampa">👑</div>
+  <h3>AMPA · CEIP Reyes Católicos</h3>
+  <p>Guardamar del Segura · Curso 2025–2026</p>
+  <p style="margin-top:0.5rem"><a href="mailto:03005951@edu.gva.es">03005951@edu.gva.es</a></p>
+  <p style="margin-top:0.3rem;font-size:0.6rem;opacity:0.4">Branding AMPA · Paleta Puertas Abiertas</p>
+</div>
+
+<script>
+// ── VOTACIÓN 1: SI/NO ──
+let v1 = null;
+function voto1(btn, op) {
+  document.querySelectorAll('#vota .voto-btn').forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel'); v1 = op;
+  document.getElementById('btn-enviar1').disabled = false;
+}
+const votos1 = { si:62, no:22, quiza:16 };
+function enviar1() {
+  votos1[v1]++;
+  const total = votos1.si + votos1.no + votos1.quiza;
+  ['si','no','quiza'].forEach(k => {
+    const p = Math.round(votos1[k]/total*100);
+    document.getElementById('pct-'+k).textContent = p+'%';
+    document.getElementById('fill-'+k).style.width = p+'%';
+  });
+  document.getElementById('ok1').classList.add('show');
+  document.getElementById('btn-enviar1').disabled = true;
+}
+
+// ── VOTACIÓN 2: PROPUESTA ──
+let v2 = null;
+function voto2(btn, op) {
+  document.querySelectorAll('#propuestas .voto-btn').forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel'); v2 = op;
+  document.getElementById('btn-enviar2').disabled = false;
+}
+function enviar2() {
+  document.getElementById('ok2').classList.add('show');
+  document.getElementById('btn-enviar2').disabled = true;
+}
+
+// ── ELEGIR PROPUESTA desde card ──
+function elegirProp(btn, nombre) {
+  document.querySelectorAll('.prop-sel-btn').forEach(b => {
+    b.textContent = 'Me gusta esta ✓';
+    b.style.fontWeight = '800';
+    b.style.background = 'transparent';
+  });
+  btn.textContent = '✅ Seleccionada';
+  btn.style.background = btn.style.color;
+  btn.style.color = 'white';
+}
+</script>
+</body>
+</html>
